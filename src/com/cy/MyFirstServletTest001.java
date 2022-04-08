@@ -1,5 +1,6 @@
 package com.cy;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,6 +23,15 @@ public class MyFirstServletTest001 extends HttpServlet {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         System.out.println("页面获取用户名："+username+"；获取密码："+password);
+
+        //间接转发
+        //resp.sendRedirect("/myServletProject001/display.jsp");
+        //直接转发
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/display.jsp");
+        //请求中赋值
+        req.setAttribute("username",username);
+        req.setAttribute("password",password);
+        requestDispatcher.forward(req,resp);
         //连接数据库
         try {
             Class.forName("com.mysql.jdbc.Driver"); //加载驱动
