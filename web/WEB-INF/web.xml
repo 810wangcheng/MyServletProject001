@@ -21,4 +21,23 @@
         <servlet-name>MyFirstServletTest001</servlet-name>
         <url-pattern>/MyServlet</url-pattern>
     </servlet-mapping>
+
+    <filter>
+        <filter-name>MyFilter</filter-name>
+        <filter-class>com.cy.MyFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>MyFilter</filter-name>
+        <url-pattern>/MyServlet</url-pattern>
+    </filter-mapping>
+    
+    <listener>
+        <listener-class>com.cy.MyRequestListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.cy.MySessionListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.cy.MyApplicationListener</listener-class>
+    </listener>
 </web-app>
